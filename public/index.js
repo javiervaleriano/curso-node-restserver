@@ -16,7 +16,8 @@ signOutBtn.addEventListener('click', () => {
 function handleCredentialResponse(response) {
   // GOOGLE TOKEN = ID_TOKEN
   const body = { id_token: response.credential };
-  const URL = process.env.ENVIRONMENT === 'dev' ?
+
+  const URL = location.host.includes('localhost') ?
     'http://localhost:8080/api/auth/google' : 'https://curso-node-restserver-jv.herokuapp.com';
 
   fetch(URL, {
