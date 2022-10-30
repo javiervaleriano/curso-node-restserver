@@ -19,7 +19,9 @@ const USUARIO_SCHEMA = Schema({
   },
   role: {
     type: String,
-    required: true
+    required: true,
+    enum: ['ADMIN_ROLE', 'USER_ROLE'],
+    default: 'USER_ROLE'
   },
   google: {
     type: Boolean,
