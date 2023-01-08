@@ -1,25 +1,15 @@
-const { googleSignIn, login } = require('./auth');
-const { buscar } = require('./buscar');
-const { actualizarCategoria, borrarCategoria, crearCategoria, obtenerCategoria, obtenerCategorias } = require('./categories');
-const { actualizarProducto, borrarProducto, crearProducto, obtenerProducto, obtenerProductos } = require('./products');
-const { userDelete, userGet, userPost, userPut } = require('./user');
+const auth = require('./auth');
+const search = require('./buscar');
+const categories = require('./categories');
+const products = require('./products');
+const user = require('./user');
+const uploads = require('./uploads');
 
 module.exports = {
-  googleSignIn,
-  login,
-  buscar,
-  actualizarCategoria,
-  borrarCategoria,
-  crearCategoria,
-  obtenerCategoria,
-  obtenerCategorias,
-  actualizarProducto,
-  borrarProducto,
-  crearProducto,
-  obtenerProducto,
-  obtenerProductos,
-  userDelete,
-  userGet,
-  userPost,
-  userPut,
+  ...auth,
+  ...search,
+  ...categories,
+  ...products,
+  ...user,
+  ...uploads,
 };
