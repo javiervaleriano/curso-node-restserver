@@ -35,8 +35,15 @@ const mostrarImagen = async (req = request, res = response) => {
   }
 
   if (modelo.img) {
-    const actualImagenPath = path.join(__dirname, '../uploads', coleccion, modelo.img);
-    if (fs.existsSync(actualImagenPath)) return res.sendFile(actualImagenPath);
+
+    // Con imagen existente en el servidor
+    if (!modelo.img.includes('http')) {
+      const actualImagenPath = path.join(__dirname, '../uploads', coleccion, modelo.img);
+      if (fs.existsSync(actualImagenPath)) return res.sendFile(actualImagenPath);
+    }
+
+    // Imagen existente en ruta remota
+    return res.redirect(modelo.img);
   }
 
   res.sendFile(noImgPath);
